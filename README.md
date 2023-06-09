@@ -2,14 +2,19 @@
 Here's a reference guide for implementing reCAPTCHA in an application:
 1.	Obtain API keys: The first step is to obtain API keys for your application from Google's reCAPTCHA website. You will need to register your application and provide the necessary information. Once you have the API keys, you can start implementing reCAPTCHA.
 2.	Include reCAPTCHA in your application: You will need to add the reCAPTCHA JavaScript API to your application. This is done by including the following code in the head section of your HTML file:
+```
 <script src="https://www.google.com/recaptcha/api.js" async defer></script> 
+```
 3.	Add the reCAPTCHA widget to your form: Next, you need to add the reCAPTCHA widget to your form. You can do this by adding the following HTML code to your form:
+```
 <div class="g-recaptcha" data-sitekey="your_site_key"></div> 
+```
 Make sure to replace "your_site_key" with the site key you obtained from Google.
 4.	Verify the user's response: When the user submits the form, you need to verify the user's response to the reCAPTCHA challenge. This is done by sending a request to Google's reCAPTCHA server with the user's response and your secret key. The response will include a success or failure status.
 Implementing reCAPTCHA in a JavaScript form:
 
 First, you'll need to include the reCAPTCHA API script in your HTML file:
+```
 <!-- Load the reCAPTCHA API script -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 Then, you can add the reCAPTCHA widget to your form:
@@ -26,9 +31,11 @@ Then, you can add the reCAPTCHA widget to your form:
 
   <button type="submit">Submit</button>
 </form>
+```
 In the code above, replace "YOUR_SITE_KEY" with your reCAPTCHA site key. You can get your site key by registering your site with Google reCAPTCHA.
 
-Verify Captcha Response
+## Verify Captcha Response
+```
 const fetch = require("node-fetch");
 
 async function verifyRecaptcha(token) {
@@ -51,4 +58,5 @@ app.post("/submit-form", async (req, res) => {
   // process the form submission
   res.send("Form submitted successfully!");
 });
+```
 In the code above, replace "YOUR_SECRET_KEY" with your reCAPTCHA secret key.The verifyRecaptcha function sends a request to the reCAPTCHA API to verify the user's response token. The server checks the response from the reCAPTCHA API and processes the form submission if the response is valid.
